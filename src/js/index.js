@@ -148,7 +148,7 @@ document.querySelector('.modal-form').addEventListener('submit', async function 
     sendButton.textContent = 'Отправка...';
     sendButton.disabled = true;
 
-    const response = await fakeSubmitForm({ name, phone });
+    const response = await submitForm({ name, phone });
 
     alert(response.message);
     this.reset(); // Очистка формы
@@ -161,14 +161,23 @@ document.querySelector('.modal-form').addEventListener('submit', async function 
   }
 });
 
-function fakeSubmitForm(data) {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      if (Math.random() > 0.1) {
-        resolve({ message: 'Форма успешно отправлена!' });
-      } else {
-        reject(new Error('Ошибка сервера'));
-      }
-    }, 1000);
-  });
+async function submitForm(data) {
+    try {
+        const response = await fetch('/mail.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: new URLSearchParams(data),
+        });
+
+        if (!response.ok) {
+            throw new Error('Ошибка сервера');
+        }
+
+        const result = await response.json();
+        return result;
+    } catch (error) {
+        throw new Error('Ошибка при отправке формы');
+    }
 }
