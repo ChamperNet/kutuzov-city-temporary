@@ -1,8 +1,7 @@
-module.exports = {
-  mode: 'jit',
-  content: ["./src/**/*.{html,js,scss}"],
-  theme: {
-    extend: {},
-  },
-  plugins: [],
-}
+export default {
+    content: ['./src/**/*.html', './src/**/*.js', './src/**/*.scss'],
+    theme: {
+        extend: {},
+    },
+    plugins: [],
+};

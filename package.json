@@ -1,25 +1,34 @@
 {
-  "type": "module",
-  "scripts": {
-    "dev": "gulp dev",
-    "build": "gulp build"
-  },
-  "dependencies": {
-    "@tailwindcss/postcss": "^4.0.3",
-    "browser-sync": "^3.0.3",
-    "del": "^8.0.0",
-    "gulp": "^5.0.0",
-    "gulp-clean-css": "^4.3.0",
-    "gulp-htmlmin": "^5.0.1",
-    "gulp-imagemin": "^9.1.0",
-    "gulp-postcss": "^10.0.0",
-    "gulp-sass": "^6.0.0",
-    "gulp-terser": "^2.1.0",
-    "sass": "^1.66.1"
-  },
-  "devDependencies": {
-    "autoprefixer": "^10.4.20",
-    "postcss": "^8.5.1",
-    "tailwindcss": "^3.4.13"
-  }
+    "type": "module",
+    "scripts": {
+        "dev": "webpack serve",
+        "build": "webpack"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.26.7",
+        "@babel/preset-env": "^7.26.7",
+        "@tailwindcss/nesting": "^0.0.0-insiders.565cd3e",
+        "@tailwindcss/postcss": "^4.0.4",
+        "autoprefixer": "^10.4.20",
+        "babel-loader": "^9.2.1",
+        "clean-webpack-plugin": "^4.0.0",
+        "copy-webpack-plugin": "^12.0.2",
+        "css-loader": "^7.1.2",
+        "html-loader": "^5.1.0",
+        "html-webpack-plugin": "^5.6.3",
+        "imagemin-webpack-plugin": "^2.4.2",
+        "mini-css-extract-plugin": "^2.9.2",
+        "postcss": "^8.5.1",
+        "postcss-nesting": "^13.0.1",
+        "postcss-import": "^16.1.0",
+        "postcss-loader": "^8.1.1",
+        "sass": "^1.84.0",
+        "sass-loader": "^16.0.4",
+        "tailwindcss": "^4.0.4",
+        "terser-webpack-plugin": "^5.3.11",
+        "webpack": "^5.97.1",
+        "webpack-cli": "^6.0.1",
+        "webpack-dev-server": "^5.2.0"
+    },
+    "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
 }
