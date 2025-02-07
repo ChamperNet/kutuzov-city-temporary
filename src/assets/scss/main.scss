@@ -183,7 +183,7 @@ a {
     }
 
     &-wrapper {
-        @apply relative max-w-[960px] rounded-[32px] bg-white;
+        @apply relative max-w-[960px] rounded-[32px] md:rounded-br-[256px] bg-white;
     }
 
     &-close {
@@ -195,7 +195,8 @@ a {
     }
 
     &-body {
-        @apply p-[20px] md:p-[80px_120px_80px_150px] xl:p-[123px_180px_123px_220px];
+        @apply p-[20px] md:p-[80px_120px_80px_150px] xl:p-[120px_180px_120px_220px];
+        background: url("@/assets/images/bg-pattern.svg") no-repeat left/contain;
     }
 
     &-title {
