@@ -207,6 +207,10 @@ a {
         @apply text-base xl:text-[20px] text-[var(--modal-main)] uppercase;
     }
 
+    &-alert {
+        @apply bg-[#009A93] text-white rounded-sm px-3 py-1.5 w-full text-base my-2;
+    }
+
     &-form {
         @apply mt-10 xl:mt-20;
     }

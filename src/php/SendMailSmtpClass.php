@@ -163,7 +163,7 @@ class SendMailSmtpClass {
         }else{
             $headers .= "Content-type: text/html; charset={$this->smtp_charset}\r\n";
         }
-        $headers .= "From: Jeffrey Monson <sender@jeffreymonson.com>\r\n"; // от кого письмо
+        $headers .= "From: Kutuzov City <noreply@kutuzov-city.ru>\r\n"; // от кого письмо
 
         $headers.= "To: ".$mailTo."\r\n"; // кому
         $contentMail .= $headers . "\r\n";
@@ -194,5 +194,3 @@ class SendMailSmtpClass {
     }
 
 }
-
-$mailSMTP = new SendMailSmtpClass('noreply@kutuzov-city.ru', 'xxxxxxxxxxxxx', 'ssl://smtp.yandex.ru', 465, "UTF-8");

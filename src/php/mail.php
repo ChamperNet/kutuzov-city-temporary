@@ -1,11 +1,17 @@
 ﻿<?php
-header('Content-Type: application/json');
+header('Content-Type: application/json; charset=UTF-8');
+
 require_once "SendMailSmtpClass.php";
 
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    echo json_encode(["error" => "Метод не поддерживается"]);
+    echo json_encode(["success" => false, "error" => "Wrong method"], JSON_UNESCAPED_UNICODE);
     exit;
 }
+
 
 $project_name = trim(
     isset($_POST["project_name"]) ? $_POST["project_name"] : "Kutuzov City"
@@ -14,7 +20,7 @@ $admin_email  = trim(
     isset($_POST["admin_email"]) ? $_POST["admin_email"] : "info@champer.ru"
 );
 $form_subject = trim(
-    isset($_POST["form_subject"]) ? $_POST["form_subject"] : "Форма с сайта"
+    isset($_POST["form_subject"]) ? $_POST["form_subject"] : "Г”Г®Г°Г¬Г  Г± Г±Г Г©ГІГ "
 );
 
 $message = "";
@@ -38,11 +44,12 @@ $message = "<table style='width: 100%;'>$message</table>";
 $from = ["Kutuzov City", "noreply@kutuzov-city.ru"];
 $to = "info@champer.ru";
 
-$mailSMTP = new SendMailSmtpClass();
+$mailSMTP = new SendMailSmtpClass('noreply@kutuzov-city.ru', 'bsyswwblqrgvgqlk', 'ssl://smtp.yandex.ru', 465, "UTF-8");
+
 $request = $mailSMTP->send($to, 'From website', $message, $from);
 
 if ($request) {
-    echo json_encode(["success" => true, "message" => "Форма успешно отправлена!"]);
+    echo json_encode(["success" => true, "message" => "Form was sent successfuly!"]);
 } else {
-    echo json_encode(["success" => false, "message" => "Ошибка отправки письма"]);
+    echo json_encode(["success" => false, "message" => "Error occured with email sending..."]);
 }
