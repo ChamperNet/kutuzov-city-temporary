@@ -155,9 +155,10 @@ document.querySelector('.modal-form').
             return;
         }
 
+        const sendButton = this.querySelector('.modal-send');
+        const alertMessage = this.querySelector('.modal-alert');
+
         try {
-            const sendButton = this.querySelector('.modal-send');
-            const alertMessage = this.querySelector('.modal-alert');
             sendButton.textContent = 'Отправка...';
             sendButton.disabled = true;
 
@@ -166,9 +167,10 @@ document.querySelector('.modal-form').
             alertMessage.classList.remove('hidden');
             this.reset(); // Очистка формы
         } catch (error) {
-            alert('Ошибка при отправке формы. Пожалуйста, попробуйте еще раз.');
+            console.log(error);
+            alertMessage.textContent = 'Ошибка при отправке формы. Пожалуйста, попробуйте еще раз.';
+            alertMessage.classList.remove('hidden');
         } finally {
-            const sendButton = this.querySelector('.modal-send');
             sendButton.textContent = 'Отправить';
             sendButton.disabled = false;
         }
@@ -191,6 +193,7 @@ async function submitForm(data) {
         const result = await response.json();
         return result;
     } catch (error) {
+        console.log(error);
         throw new Error('Ошибка при отправке формы');
     }
 }

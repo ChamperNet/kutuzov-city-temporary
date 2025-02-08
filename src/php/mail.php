@@ -8,7 +8,7 @@ ini_set('display_errors', 1);
 
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    echo json_encode(["success" => false, "error" => "Wrong method"], JSON_UNESCAPED_UNICODE);
+    echo json_encode(["success" => false, "error" => "Неверный метод запроса"], JSON_UNESCAPED_UNICODE);
     exit;
 }
 
@@ -20,7 +20,7 @@ $admin_email  = trim(
     isset($_POST["admin_email"]) ? $_POST["admin_email"] : "info@champer.ru"
 );
 $form_subject = trim(
-    isset($_POST["form_subject"]) ? $_POST["form_subject"] : "Г”Г®Г°Г¬Г  Г± Г±Г Г©ГІГ "
+    isset($_POST["form_subject"]) ? $_POST["form_subject"] : "Обратная связь"
 );
 
 $message = "";
@@ -49,7 +49,7 @@ $mailSMTP = new SendMailSmtpClass('noreply@kutuzov-city.ru', 'bsyswwblqrgvgqlk',
 $request = $mailSMTP->send($to, 'From website', $message, $from);
 
 if ($request) {
-    echo json_encode(["success" => true, "message" => "Form was sent successfuly!"]);
+    echo json_encode(["success" => true, "message" => "Сообщение было успешно отправлено!"]);
 } else {
-    echo json_encode(["success" => false, "message" => "Error occured with email sending..."]);
+    echo json_encode(["success" => false, "message" => "Возникла ошибка при отправке сообщения."]);
 }
