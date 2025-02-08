@@ -42,7 +42,8 @@ foreach ($_POST as $key => $value) {
 $message = "<table style='width: 100%;'>$message</table>";
 
 $from = ["Kutuzov City", "noreply@kutuzov-city.ru"];
-$to = "info@champer.ru";
+$to = "city@kutuzov-city.ru";
+// $to = "info@champer.ru";
 
 $mailSMTP = new SendMailSmtpClass('noreply@kutuzov-city.ru', 'bsyswwblqrgvgqlk', 'ssl://smtp.yandex.ru', 465, "UTF-8");
 
