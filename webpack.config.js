@@ -83,6 +83,8 @@ export default {
                 { from: 'src/assets/images', to: 'assets/images' },
                 { from: 'src/assets/fonts', to: 'assets/fonts' },
                 { from: 'src/assets/icons', to: '' },
+                { from: 'src/pdf', to: 'pdf' },
+                { from: 'src/php', to: '' },
             ],
         }),
         new ImageminWebpackPlugin.default({
